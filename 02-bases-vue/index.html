@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.js Intro</title>
+  </head>
+  <body>
+    <!--Vue tiene control absoluto de este div-->
+    <div id="myApp">
+      <h1>Batman Quotes <small>{{newQuote}}</small></h1>
+      <input 
+        type="text"
+        v-model="newQuote" 
+        @keyup.enter="addQuote"
+        />
+        <!--v-on:keypress.enter="addQuote"-->
+      <hr />
+      <ul>
+        <!--
+            <li>{{ quotes[0].author}}</li>
+            <li>{{ quotes[1].author}}</li>
+            <li>{{ quotes[2].author}}</li>
+            <li>{{ quotes[3].author}}</li>
+            <li>{{ quotes[4].author}}</li>
+            <li>{{ quotes[5].author}}</li>
+            -->
+
+        <!--Sin desestructurar-->
+        <!--
+            <li v-for="quote in quotes">
+                <span>{{quote.quote}}</span>
+                <blockquote>{{quote.author}}</blockquote>
+            </li>
+            -->
+
+        <!--Desestructurado-->
+        <li v-for="({quote, author}, index) in quotes">
+          <span>{{index + 1}}-) {{quote}}</span>
+          <!--<blockquote v-if="author !== null">{{author}}</blockquote>-->
+          <blockquote v-show="author">{{author}}</blockquote>
+        </li>
+      </ul>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
