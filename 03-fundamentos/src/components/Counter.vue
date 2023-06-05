@@ -2,7 +2,8 @@
     <div>
         <h2>{{ customTitle }}</h2>
         <!--<p>{{ counter }} <sup>2</sup> = {{ counter * counter }}</p>-->
-        <p>{{ counter }} <sup>2</sup> = {{ squareCounter }}</p>
+        <!--<p>{{ counter }} <sup>2</sup> = {{ squareCounter }}</p>-->
+        <p data-testid="counter">{{ counter }}</p>
         <div>
             <button v-on:click="increase">+</button>
             <button @click="decrease">-</button>
@@ -17,7 +18,7 @@ export default {
         title: String,
         start: {
             type: Number,
-            required: true,
+            //required: true,
             default: 100,
             validator(value) {
                 return value >= 0

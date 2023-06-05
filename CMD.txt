@@ -6,3 +6,6 @@ npm run serve
 
 //Para hacer pruebas
 npm run test:unit
+
+//Actualizar snapshot
+npm run test:unit -- -u
