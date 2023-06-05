@@ -1,28 +1,17 @@
-const miPromesa = () => {
-    return new Promise( resolve => {
-        setTimeout(() => {
-            resolve('Tenemos un valor en la promesa')
-        }, 3000);
-    })
-}
+import giphyApi from "./bases/11-axios";
 
-const medirTiempoAsync = async() => {
-    try {
-        console.log('Inicio')
-        //miPromesa().then(console.log)
-        const respuesta = await miPromesa()
-        console.log(respuesta);
-        console.log('Fin')
+const getImage = async () => {
+  try {
+    const { data } = (await giphyApi.get("/random")).data;
+    const { url } = data.images.original;
 
-    return 'Fin de medirTiempoAsync'
-    
-    } catch (error) {
-        throw 'Error en medirTiempoAsync'
-        //return 'Catch en  medirTiempoAsync'
-    }
-    
-}
+    const img = document.createElement("img");
+    img.src = url;
+    document.body.append(img);
+  } catch (error) {
+    console.log("Error en la petición", error);
+    throw error;
+  }
+};
 
-medirTiempoAsync()
-    .then( valor => console.log(valor) )
-    .catch( err => console.log(err) )
+getImage();
