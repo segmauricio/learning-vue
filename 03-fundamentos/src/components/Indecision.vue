@@ -1,13 +1,15 @@
 <template>
-    <h1>Indecision App</h1>
-    <img v-if=img :src="img" alt="background-image" />
-    <div class="bg-dark"></div>
-    <div class="indecision-container">
-        <input type="text" placeholder="Hazme una pregunta" v-model="question" />
-        <p>Recuerda terminar con un signo de interrogacion (?)</p>
-        <div v-if="isValidQuestion">
-            <h2>{{ question }}</h2>
-            <h1>{{ answer === 'yes' ? 'Si' : 'Naur'}}</h1>
+    <div>
+        <h1>Indecision App</h1>
+        <img v-if=img :src="img" alt="background-image" />
+        <div class="bg-dark"></div>
+        <div class="indecision-container">
+            <input type="text" placeholder="Hazme una pregunta" v-model="question" />
+            <p>Recuerda terminar con un signo de interrogacion (?)</p>
+            <div v-if="isValidQuestion">
+                <h2>{{ question }}</h2>
+                <h1>{{ answer === 'yes' ? 'Si' : 'Naur' }}</h1>
+            </div>
         </div>
     </div>
 </template>
@@ -41,7 +43,7 @@ export default {
             //console.log({value, oldValue});
             //console.log(value.includes('?'));
             if (!value.includes('?')) return
-                this.isValidQuestion = true
+            this.isValidQuestion = true
             //TODO: Realizar peticion http
             this.getAnswer()
         }

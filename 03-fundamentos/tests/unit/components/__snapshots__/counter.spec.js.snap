@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Counter Component Debe de hacer match con el snapshot 1`] = `
+<div>
+  <h2>Counter</h2>
+  <!--<p>{{ counter }} <sup>2</sup> = {{ counter * counter }}</p>-->
+  <p>100 <sup>2</sup> = 10000</p>
+  <div><button>+</button><button>-</button></div>
+</div>
+`;
