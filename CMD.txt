@@ -9,3 +9,6 @@ npm run test:unit
 
 //Actualizar snapshot
 npm run test:unit -- -u
+
+//Build
+npm ruin build
