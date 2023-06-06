@@ -1,0 +1,22 @@
+<template>
+    <div>
+        <router-link to="/">Pokemon List</router-link>
+        <router-link to="/id">Pokemon by ID</router-link>
+        <router-link to="/about">About</router-link>
+    </div>
+</template>
+
+<style scoped>
+    div{
+        padding: 0 30px;
+    }
+    div a{
+        font-weight: bold;
+        color: #044b5b;
+        margin: 0 10px;
+    }
+    div .router-link-exact-active{
+        color: #42bb98;
+
+    }
+</style>
