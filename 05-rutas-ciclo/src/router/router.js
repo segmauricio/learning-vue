@@ -4,29 +4,34 @@ import { createRouter, createWebHashHistory } from "vue-router";
 const routes = [
     {
         path: "/",
-        redirect: "/home"
+        redirect: "/pokemon"
     },
-    { 
-        path: "/home",
-        name: 'home',
-        component: () => import(/* webpackChunkName: "ListPage" */'../modules/pokemon/pages/ListPage')
+    {
+        path: "/pokemon",
+        name: pokemon,
+        component: () => import(/* webpackChunkName: "PokemonLayout" */'../modules/pokemon/layouts/PokemonLayout')
     },
-    { 
-        path: "/about",
-        name: 'about',
-        component: () => import(/* webpackChunkName: "AboutPage" */'../modules/pokemon/pages/AboutPage'),
-    },
-    { 
-        path: "/pokemon-id/:id",
-        name: 'pokemon-id',
-        component: () => import(/* webpackChunkName: "PokemonPage" */'../modules/pokemon/pages/PokemonPage'),
-        props: ( route ) => {
-            //console.log(route);
-            //const { id } = route.params
-            const id = Number( route.params.id)
-            return isNaN( id ) ? { id: 1 } : { id: id }
-        }
-    },
+    // { 
+    //     path: "/home",
+    //     name: 'home',
+    //     component: () => import(/* webpackChunkName: "ListPage" */'../modules/pokemon/pages/ListPage')
+    // },
+    // { 
+    //     path: "/about",
+    //     name: 'about',
+    //     component: () => import(/* webpackChunkName: "AboutPage" */'../modules/pokemon/pages/AboutPage'),
+    // },
+    // { 
+    //     path: "/pokemon-id/:id",
+    //     name: 'pokemon-id',
+    //     component: () => import(/* webpackChunkName: "PokemonPage" */'../modules/pokemon/pages/PokemonPage'),
+    //     props: ( route ) => {
+    //         //console.log(route);
+    //         //const { id } = route.params
+    //         const id = Number( route.params.id)
+    //         return isNaN( id ) ? { id: 1 } : { id: id }
+    //     }
+    // },
     { 
         path: "/:pathMatch(.*)*",
         //component: () => import(/* webpackChunkName: "NoPageFound" */'../modules/shared/pages/NoPageFound'),
